@@ -92,7 +92,7 @@ def viterbi(emit_matrix, transit_matrix, sentence, tags):
         dp_mat[0][tag] = 1 * transition_probability * emission_probability # All sentence start from <S>
         trace_mat[0][tag] = "<S>"
 
-    # For all other word positions and a tag at that pos, calculate the edge which has the highest probability of reaching there from the start state
+    # For all other word positions and a tag at that pos, calculate the edge(from prev state) which has the highest probability of reaching there from the start state
     for i in range(1, len(words)):
         for tag in tags:
             max_state_probability = 0
